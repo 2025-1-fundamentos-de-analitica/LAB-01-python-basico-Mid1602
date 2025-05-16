@@ -20,3 +20,38 @@ def pregunta_10():
 
 
     """
+
+    nombre_del_archivo = "files/input/data.csv"
+    
+    lista = []
+    
+    archivo = open(nombre_del_archivo, "r")
+
+    for linea in archivo:
+        linea_limpia = linea.strip()
+        
+        
+        columnas = linea_limpia.split('\t')
+       
+        letra = columnas[0]
+        
+        
+        columna_4 = columnas[3]
+        
+        elementos_col_4 = columna_4.split(',')
+        cantidad_col_4 = len(elementos_col_4)
+        
+        columna_5 = columnas[4] 
+        
+        elementos_col_5 = columna_5.split(',')
+        cantidad_col_5 = len(elementos_col_5)
+        
+        tupla_actual = (letra, cantidad_col_4, cantidad_col_5)
+        
+        
+        lista.append(tupla_actual)
+            
+    archivo.close()
+    
+  
+    return lista

@@ -26,3 +26,32 @@ def pregunta_04():
      ('12', 3)]
 
     """
+
+
+    nombre_del_archivo = "files/input/data.csv"
+    
+    
+    conteo = {}
+  
+    archivo = open(nombre_del_archivo, "r")
+
+
+    for lineas_archivos in archivo:
+        linea_limpia = lineas_archivos.strip()
+        
+            
+        columnas = linea_limpia.split('\t')
+
+        fecha_completa = columnas[2] 
+        
+        mes = fecha_completa[5:7]
+        
+        conteo[mes] = conteo.get(mes, 0) + 1
+            
+    archivo.close()
+    
+    lista_de_tuplas = list(conteo.items())
+    
+    resultado_ordenado = sorted(lista_de_tuplas)
+      
+    return resultado_ordenado

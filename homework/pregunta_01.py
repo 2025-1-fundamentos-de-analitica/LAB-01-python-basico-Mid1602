@@ -6,11 +6,35 @@ utilizar pandas, numpy o scipy.
 """
 
 
+
 def pregunta_01():
-    """
-    Retorne la suma de la segunda columna.
+    
+    nombre_del_archivo = "files/input/data.csv"
+    suma_de_numeros = 0 
+    
+    
+    archivo = open(nombre_del_archivo, "r") 
 
-    Rta/
-    214
+    
+    for lineas_archivo in archivo:
+        
+   
+        linea_limpia = lineas_archivo.strip()
+        
+    
+       
+            
 
-    """
+        columnas = linea_limpia.split('\t')
+        
+        
+        segunda_columna = columnas[1]
+        
+        numero_convertido = int(segunda_columna)
+        
+        suma_de_numeros = suma_de_numeros + numero_convertido
+    
+    # Paso 3: Cerrar el archivo cuando termines de usarlo
+    archivo.close()
+      
+    return suma_de_numeros

@@ -7,11 +7,21 @@ utilizar pandas, numpy o scipy.
 
 
 def pregunta_02():
-    """
-    Retorne la cantidad de registros por cada letra de la primera columna como
-    la lista de tuplas (letra, cantidad), ordendas alfabéticamente.
+  
+    
+    nombre = "files/input/data.csv"
+    archivo = open(nombre, "r")
+    conteo_letras = {}
 
-    Rta/
-    [('A', 8), ('B', 7), ('C', 5), ('D', 6), ('E', 14)]
 
-    """
+    for lineas_archivo in archivo:
+        
+        linea_limpia = lineas_archivo.strip()
+
+        letra = linea_limpia.split('\t')[0]
+        conteo_letras[letra] = conteo_letras.get(letra, 0) + 1
+            
+
+    archivo.close()
+    return sorted(list(conteo_letras.items()))
+    

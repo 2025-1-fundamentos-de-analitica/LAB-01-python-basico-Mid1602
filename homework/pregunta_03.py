@@ -15,3 +15,43 @@ def pregunta_03():
     [('A', 53), ('B', 36), ('C', 27), ('D', 31), ('E', 67)]
 
     """
+
+    nombre_del_archivo = "files/input/data.csv" 
+    
+
+    sumas_por_letra = {}
+    
+
+    archivo = open(nombre_del_archivo, "r")
+
+
+    for lineas_archivos in archivo:
+       
+        linea_limpia = lineas_archivos.strip()
+   
+            
+
+        columnas = linea_limpia.split('\t')
+        
+        
+        letra = columnas[0]
+        
+ 
+        valor_texto = columnas[1]
+        
+        
+        valor_numerico = int(valor_texto)
+        
+        
+        sumas_por_letra[letra] = sumas_por_letra.get(letra, 0) + valor_numerico
+            
+   
+    archivo.close()
+    
+
+    lista_de_tuplas = list(sumas_por_letra.items())
+    
+   
+    resultado_ordenado = sorted(lista_de_tuplas)
+      
+    return resultado_ordenado
